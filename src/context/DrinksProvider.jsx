@@ -6,10 +6,6 @@ const DrinksContext = createContext();
 const DrinksProvider = ({children}) => {
     const [drinks, setDrinks] = useState([]);
 
-
-
-
-
     return(
         <DrinksContext.Provider value={{}}>
             {children}
