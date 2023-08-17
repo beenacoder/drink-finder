@@ -1,11 +1,30 @@
-import {createContext, useState} from 'react';
+import { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 const DrinksContext = createContext();
 
-const DrinksProvider = ({children}) => {
+const DrinksProvider = ({ children }) => {
     const [drinks, setDrinks] = useState([]);
     const [modalShow, setModalShow] = useState(false);
+    const [drinkId, setDrinkId] = useState('');
+    const [recipe, setRecipe] = useState('');
+
+
+    useEffect(() => {
+        const getRecipe = async () => {
+            if (!drinkId) return;
+            try {
+                const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`;
+                const {data} = await axios(url);
+                setRecipe(data.drinks[0]);
+                console.log(data.drinks[0]);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getRecipe();
+    }, [drinkId])
+
 
     const getDrink = async drinks => {
         try {
@@ -21,13 +40,17 @@ const DrinksProvider = ({children}) => {
         setModalShow(!modalShow);
     }
 
-    return(
-        <DrinksContext.Provider value={{getDrink, drinks, handleModalClick, modalShow}}>
+    const handleDrinkId = (id) => {
+        setDrinkId(id);
+    }
+
+    return (
+        <DrinksContext.Provider value={{ getDrink, drinks, handleModalClick, modalShow, handleDrinkId, recipe }}>
             {children}
         </DrinksContext.Provider>
     )
 }
 
-export {DrinksProvider}
+export { DrinksProvider }
 
 export default DrinksContext;

@@ -6,7 +6,6 @@ import { Drink } from "./Drink";
 export const ListDrinks = () => {
 
     const {drinks} = useDrinks();
-    console.log(drinks)
     return (
             <Row className='mt-4'>
                 {drinks.map(drink => (

@@ -3,7 +3,7 @@ import useDrinks from '../hooks/useDrinks';
 
 
 export const Drink = ({drink}) => {
-    const { handleModalClick } = useDrinks();
+    const { handleModalClick, handleDrinkId } = useDrinks();
     return (
         <Col md={6} lg={3} >
             <Card className='mb-4'>
@@ -14,7 +14,16 @@ export const Drink = ({drink}) => {
                 />
                 <Card.Body>
                     <Card.Title className='text-center' >{drink.strDrink}</Card.Title>
-                    <Button variant='danger' className='w-100 text-uppercase mt-3' onClick={() => {handleModalClick()}}>Ver Receta</Button>
+                    <Button 
+                        variant='danger' 
+                        className='w-100 text-uppercase mt-3' 
+                        onClick={() => { 
+                            handleModalClick(), 
+                            handleDrinkId(drink.idDrink)
+                        }}
+                        >
+                            Ver Receta
+                        </Button>
                 </Card.Body>
             </Card>
         </Col>
