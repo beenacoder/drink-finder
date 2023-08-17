@@ -3,6 +3,7 @@ import DrinkForm from './components/DrinkForm';
 import { CategoriesProvider } from './context/CategoriesProvider';
 import { DrinksProvider } from './context/DrinksProvider';
 import { ListDrinks } from './components/ListDrinks';
+import ModalDrinkRecipe from './components/ModalDrinkRecipe';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
                 <Container className='mt-5'>
                     <DrinkForm />
                     <ListDrinks />
+                    <ModalDrinkRecipe />
                 </Container>
             </DrinksProvider>
         </CategoriesProvider>
