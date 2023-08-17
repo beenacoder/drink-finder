@@ -20,6 +20,8 @@ const ModalDrinkRecipe = () => {
     }
 
     return (
+        !loading && (
+
             <Modal  show={modalShow} onHide={handleModalClick}>
                         <Image src={recipe.strDrinkThumb} alt={recipe.strDrink} className=''/>
                         <Modal.Header className=''>
@@ -36,6 +38,7 @@ const ModalDrinkRecipe = () => {
                         </Modal.Body>
             </Modal>
         ) 
+    )
     
 }
 
