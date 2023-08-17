@@ -12,7 +12,7 @@ const ModalDrinkRecipe = () => {
         for(let i = 1; i < 15; i++) {
             if(recipe[`strIngredient${i}`]){
                 ingredients.push(
-                        <li >{recipe[`strIngredient${i}`]} - {recipe[`strMeasure${i}`]}</li>
+                        <p>{recipe[`strIngredient${i}`]} - {recipe[`strMeasure${i}`]}</p>
                 )
             }
         }
@@ -20,7 +20,7 @@ const ModalDrinkRecipe = () => {
     }
 
     return (
-            <Modal show={modalShow} onHide={handleModalClick}>
+            <Modal  show={modalShow} onHide={handleModalClick}>
                         <Image src={recipe.strDrinkThumb} alt={recipe.strDrink} className=''/>
                         <Modal.Header className=''>
                             <Modal.Title>{recipe.strDrink}</Modal.Title>

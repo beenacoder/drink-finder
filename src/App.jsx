@@ -5,6 +5,8 @@ import { DrinksProvider } from './context/DrinksProvider';
 import { ListDrinks } from './components/ListDrinks';
 import ModalDrinkRecipe from './components/ModalDrinkRecipe';
 
+
+
 function App() {
 
 
@@ -14,7 +16,7 @@ function App() {
                 <header className="py-5">
                     <h1>Drink Finder</h1>
                 </header>
-                <Container className='mt-5'>
+                <Container className='mt-5 background' >
                     <DrinkForm />
                     <ListDrinks />
                     <ModalDrinkRecipe />

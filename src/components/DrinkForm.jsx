@@ -30,7 +30,7 @@ const DrinkForm = () => {
             <Row>
                 <Col md={6}>
                     <Form.Group className='mb-3'>
-                        <Form.Label htmlFor='drink'>Drink Name</Form.Label>
+                        <Form.Label htmlFor='drink' className='fs-5'>Drink Name</Form.Label>
                         <Form.Control 
                             id='drink'
                             type="text"
@@ -46,7 +46,7 @@ const DrinkForm = () => {
                 </Col>
                 <Col md={6}>
                     <Form.Group className='mb-3'>
-                        <Form.Label htmlFor='category'>Categories</Form.Label>
+                        <Form.Label htmlFor='category' className='fs-5'>Categories</Form.Label>
                         <Form.Select id="category" name='category'
                              value={search.category}
                              onChange = {e => setSearch({
